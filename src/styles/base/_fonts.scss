@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('/fonts/BwGradual-Regular.woff2') format('woff2'),
+      url('/fonts/BwGradual-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('/fonts/BwGradual-Medium.woff2') format('woff2'),
+      url('/fonts/BwGradual-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('/fonts/BwGradual-Bold.woff2') format('woff2'),
+      url('/fonts/BwGradual-Bold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/SequelSans-MediumDisp.woff2') format('woff2'),
+      url('/fonts/SequelSans-MediumDisp.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/SequelSans-SemiBoldBody.woff2') format('woff2'),
+  url('/fonts/SequelSans-SemiBoldBody.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/SequelSans-BoldHead.woff2') format('woff2'),
+      url('/fonts/SequelSans-BoldHead.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

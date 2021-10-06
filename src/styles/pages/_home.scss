@@ -1,0 +1,333 @@
+.nav-slider {
+  position: fixed;
+  z-index: 3;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 3%;
+  color: $color-background;
+  background: $color-darkpurple;
+  border-radius: 100px;
+  @include font-subheading2($size: 0.5rem);
+  opacity: 0;
+
+  @include media('>=phone') {
+    @include font-subheading2($size: 0.65rem);
+    margin: 0;
+  }
+
+  .nav-list {
+    display: flex;
+    white-space: nowrap;
+    padding: 0.5rem;
+    position: relative;
+    overflow: hidden;
+
+    .nav-pad {
+      position: absolute;
+      top: 0.5rem;
+      left: 1.1%;
+      width: 165px;
+      height: 40px;
+      padding: 0.5rem 1rem;
+      background: $color-lightpurple;
+      border-radius: 100px;
+      z-index: -1;
+    }
+
+    .nav-item {
+      padding: 0.5rem 1rem;
+      vertical-align: middle;
+      display: flex;
+      align-items: center;
+      color: $color-gray;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 100px;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+
+      svg {
+        margin-right: 10px;
+      }
+
+      @include media('>=phone') {
+        &:hover {
+          background: rgba($color: #000000, $alpha: 0.3);
+        }
+      }
+
+      @include media('<=phone') {
+        padding: 0.5rem 0.3rem;
+
+        &-text {
+          display: none;
+        }
+
+        svg {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .nav-item.active {
+      pointer-events: none;
+      // background: $color-primary;
+      color: $color-darkpurple;
+      border-radius: 100px;
+
+      svg {
+
+        path,
+        rect {
+          fill: $color-darkpurple;
+        }
+      }
+
+      @include media('<=phone') {
+
+        svg {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+.nav-slider .nav-list .nav-item.active .nav-item-text {
+  @include media('<=phone') {
+    display: block;
+  }
+}
+
+
+#intro {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  margin-top: 10vh;
+  margin-bottom: 0;
+  width: 100%;
+  height: 100%;
+
+  .slider-master {
+    width: 100%;
+    height: 77vh;
+    border-radius: 15px;
+
+    .swiper {
+      margin: 0 auto;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      border-radius: 15px;
+
+      .slide-overlay {
+        background: linear-gradient(0deg, #2F1A4C 4%, rgba(47, 26, 76, 0) 78.94%), linear-gradient(0deg, rgba(47, 26, 76, 0.5), rgba(47, 26, 76, 0.5));
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      .slide-subtitle {
+        position: absolute;
+        z-index: 2;
+        left: 50%;
+        top: 30%;
+        width: 70%;
+        text-align: center;
+        transition: opacity 0.5s $ease-inout-expo, transform 0.5s $ease-inout-expo;
+        transform: translateX(-50%) translateY(40px);
+        opacity: 0;
+        @include font-subheading2($size: $font-size-small);
+
+        @include media('<=phone') {
+          top: 48%;
+          @include font-subheading2($size: 0.5rem);
+        }
+      }
+
+      .slide-title {
+        width: 95%;
+        position: absolute;
+        z-index: 2;
+        left: 50%;
+        bottom: 20%;
+        text-align: center;
+        @include font-heading($size: 1.4rem);
+        transition: opacity 0.5s $ease-inout-expo, transform 0.5s $ease-inout-expo;
+        transform: translateX(-50%) translateY(40px);
+        opacity: 0;
+
+        @include media('>=phone') {
+          width: 70%;
+          bottom: 37%;
+          @include font-heading($size: 2.5rem);
+        }
+      }
+
+      .slide-btn {
+        background: $color-background;
+        color: $color-primary;
+        border-radius: 100px;
+        padding: 0.8rem 1.8rem;
+        white-space: nowrap;
+        position: absolute;
+        z-index: 2;
+        left: 50%;
+        bottom: 5%;
+        transform: translateX(-50%);
+        cursor: pointer;
+        @include font-small();
+        transition: opacity 0.5s $ease-inout-expo, transform 0.5s $ease-inout-expo;
+        transform: translateX(-50%) translateY(40px);
+        opacity: 0;
+
+        svg {
+          margin-left: 0.5rem;
+          transform: scale(1.1);
+        }
+
+        @include media('>=phone') {
+          bottom: 10%;
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .swiper-slide-active {
+
+      .slide-title,
+      .slide-subtitle,
+      .slide-btn {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0px);
+      }
+
+      .slide-title {
+        transition-delay: 0.35s;
+      }
+
+      .slide-subtitle {
+        transition-delay: 0.3s;
+      }
+
+      .slide-btn {
+        transition-delay: 0.25s;
+      }
+    }
+  }
+}
+
+#content {
+  margin-top: 100vh;
+  margin-bottom: 0;
+  padding-top: 8rem;
+  background: white;
+  position: relative;
+  z-index: 2;
+
+  .row {
+    &:not(:last-child) {
+      margin-bottom: 7rem;
+    }
+  }
+
+  .content {
+
+    &-wrap {
+      overflow: hidden;
+
+      &:not(:first-child) {
+        display: none;
+      }
+    }
+
+
+    &-title,
+    &-subtitle {
+      margin-bottom: 2rem;
+    }
+
+    &-title {
+
+      strong {
+        font-weight: 600;
+      }
+    }
+
+    &-desc {
+      color: $color-graytext;
+
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  #nextchapter {
+    padding: 8rem 0;
+
+    .nextchapter {
+
+      &-loading {
+        max-width: 300px;
+        height: 2px;
+        background: $color-gray2;
+        bottom: -15px;
+        position: relative;
+        display: block;
+        margin: 0 auto;
+      }
+
+      &-text {
+        width: 100%;
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        text-align: center;
+        transform: translateX(-50%);
+        color: $color-gray;
+      }
+
+      &-fill {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        background: $color-primary;
+        transform-origin: left;
+        transform: scaleX(0);
+      }
+    }
+  }
+}

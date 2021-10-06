@@ -1,0 +1,305 @@
+/// Colors
+$color-primary: #A566FF;
+$color-lightpurple: #BF93FF;
+$color-darkpurple: #452E66;
+$color-secondary: #FFFFFF;
+$color-background: #FFFFFF;
+$color-text: #000000;
+$color-gray: #9A9A9A;
+$color-gray2: #CCCCCC;
+$color-graytext: #484848;
+$color-graydark: #222222;
+
+/// Fonts
+// Font family
+$font-family-main: "Bw Gradual", sans-serif;
+$font-family-sequel: "Sequel Sans", sans-serif;
+
+$font-size-root: 18px; // (also) font-size-body
+
+$font-size-big: 13vw;
+$font-size-heading: 2.1rem;
+$font-size-subheading: 1.9rem;
+$font-size-subheading2: 2rem;
+$font-size-body: 1rem;
+$font-size-small: 0.8rem;
+
+// Font weight
+$font-weight-heading: 400;
+$font-weight-subheading: 600;
+$font-weight-subheading2: 500;
+$font-weight-body: 400;
+$font-weight-small: 400;
+
+// Font letter spacing
+$font-spacing-heading: 0;
+$font-spacing-subheading: 0;
+$font-spacing-subheading2: 0;
+$font-spacing-body: 0;
+$font-spacing-small: 0;
+
+/// Spacing
+$margin-section: 20rem;
+$margin-heading: 0.8em;
+
+$space: 1em;
+
+@mixin font-body($weight: $font-weight-body, $size: $font-size-body, $spacing: $font-spacing-body) {
+    @include font-size($size);
+    font-style: normal;
+    font-weight: $weight;
+    letter-spacing: $spacing;
+    line-height: normal;
+}
+
+@mixin font-heading($weight: $font-weight-heading, $size: $font-size-heading, $spacing: $font-spacing-heading) {
+    @include font-size($size);
+    font-weight: $weight;
+    letter-spacing: $spacing;
+    line-height: normal;
+    // text-transform: uppercase;
+}
+
+@mixin font-subheading($weight: $font-weight-subheading, $size: $font-size-subheading, $spacing: $font-spacing-subheading) {
+    @include font-size($size);
+    font-weight: $weight;
+    letter-spacing: $spacing;
+    line-height: 1;
+    // text-transform: uppercase;
+}
+
+@mixin font-subheading2($weight: $font-weight-subheading2, $size: $font-size-subheading2, $spacing: $font-spacing-subheading2) {
+    @include font-size($size);
+    font-weight: $weight;
+    letter-spacing: $spacing;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+@mixin font-small($weight: $font-weight-small, $size: $font-size-small, $spacing: $font-spacing-small) {
+    @include font-size($size);
+    font-weight: $weight;
+    letter-spacing: $spacing;
+    text-transform: uppercase;
+    display: block;
+}
+
+@mixin margin-horizontal($size: $space) {
+    @include margin-left($size);
+    @include margin-right($size);
+}
+
+@mixin margin-vertical($size: $space) {
+    @include margin-top($size);
+    @include margin-bottom($size);
+}
+
+@mixin padding-horizontal($size: $space) {
+    @include padding-left($size);
+    @include padding-right($size);
+}
+
+@mixin padding-vertical($size: $space) {
+    @include padding-top($size);
+    @include padding-bottom($size);
+}
+
+@mixin flex-center($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+
+%reset-space {
+    margin: 0;
+    padding: 0;
+}
+
+%border-heading {
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: -30px;
+        width: 75px;
+        border-top: 4px solid $color-text;
+    }
+}
+
+// Other
+$transition: all 0.2s ease-in-out;
+$transition3s: all 0.3s ease;
+// $borderradius: 0.3125rem;
+$box-shadow: 0 2px 20px 2px rgba(0, 0, 0, 0.1);
+$box-shadow-hover: 0 1rem 2.5rem rgba(22, 28, 45, .1),
+0 .5rem 1rem -.75rem rgba(22, 28, 45, .1);
+
+// Ease
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+$ease-inout-expo: cubic-bezier(0.6, 0.02, 0.27, 1.01);
+
+@mixin box-shadow() {
+    transition: all 0.2s ease-in-out !important;
+
+    &:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 1rem 2.5rem rgba(22, 28, 45, .1), 0 .5rem 1rem -.75rem rgba(22, 28, 45, .1) !important;
+    }
+}
+
+@mixin fillup($color: $color-primary, $background: $color-background) {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    &::before {
+        position: absolute;
+        content: "";
+        background-color: $color;
+        left: 0;
+        right: 0;
+        top: auto;
+        bottom: 0;
+        z-index: -1;
+        transition: all 0.3s ease;
+        height: 0;
+    }
+
+    &:hover {
+        color: $background;
+
+        &:before {
+            height: 100%;
+            z-index: -1;
+        }
+    }
+}
+
+@mixin stroke-hover($color: $color-text) {
+    cursor: pointer;
+    -webkit-text-stroke-color: $color;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(135deg, $color 0%, $color 50%, transparent 50.1%);
+    background-size: 0% 100%;
+    transition: background-size .5s cubic-bezier(0.67, 0.01, 0.15, 0.98);
+
+    &:hover {
+        background-size: 220% 100%;
+    }
+}
+
+@mixin text-underline($color: $color-text) {
+    color: $color;
+    width: fit-content;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+
+    &::before,
+    &::after {
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: $color;
+        top: 100%;
+        left: 0;
+        pointer-events: none;
+    }
+
+    &::before {
+        content: '';
+        transform-origin: 100% 50%;
+        transform: scale3d(0, 1, 1);
+        transition: transform 0.3s;
+    }
+
+    &:hover::before {
+        transform-origin: 0% 50%;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@mixin btn-fill($color: $color-text, $background: $color-background, $border: true, $padding-y: 0.5rem, $padding-x: 2rem) {
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    padding: $padding-y $padding-x !important;
+    margin-top: 0;
+    color: $color;
+    transition: background-color 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    cursor: pointer;
+    overflow: hidden;
+
+    @if ($border) {
+        border: 2px solid $background;
+    }
+
+    span {
+        display: block;
+        transform: translateY(0);
+        transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition-delay: 0.2s;
+    }
+
+    &:hover {
+
+        span {
+            transform: translateY(-200%);
+            transition-delay: 0s;
+        }
+
+        &::after {
+            transform: translateY(0);
+            transition-delay: 0.2s;
+        }
+
+        &::before {
+            transform: translateY(0) scaleX(2);
+            border-radius: 0;
+            transition-delay: 0s;
+        }
+    }
+
+    &::before, &::after {
+        position: absolute;
+        top: 0;
+        padding-top: $padding-y;
+        transform: translateY(100%);
+    }
+
+    &::before {
+        content: "";
+        left: 0;
+        width: 100%;
+        height: 200%;
+        z-index: 1;
+        border-radius: 200%;
+        background-color: $color;
+        transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-radius 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition-delay: 0.2s;
+    }
+
+    &::after {
+        content: attr(data-text);
+        color: $background;
+        left: calc(#{$padding-x} - 1px);
+        width: calc(100% - #{$padding-x * 2} + 2px);
+        height: 100%;
+        z-index: 2;
+        transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition-delay: 0s;
+    }
+}
+
+// Responsive
+@mixin media-desktop() {
+    @media (min-width: 991.98px) {
+        @content;
+    }
+}

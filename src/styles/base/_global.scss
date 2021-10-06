@@ -1,0 +1,99 @@
+html {
+	font-size: $font-size-root;
+    box-sizing: border-box;
+	text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: none;
+}
+
+body {
+    @include font-body();
+    font-family: $font-family-main;
+    background-color: $color-background;
+    color: $color-text;
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    margin: $margin-section 0;
+}
+
+a {
+    color: $color-text;
+    text-decoration: none;
+    display: inline-block;
+}
+
+h1,
+h2 {
+    @include font-heading();
+}
+
+h3 {
+    @include font-subheading();
+}
+
+h4,
+h5,
+h6 {
+    @include font-subheading2();
+}
+
+small {
+    @include font-small();
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+small {
+    @extend %reset-space;
+}
+
+img {
+    max-width: 100%;
+}
+
+strong {
+    font-weight: 500;
+}
+
+::selection {
+    color: $color-background;
+    background: $color-primary;
+}
+
+.small {
+    @include font-small();
+}
+
+#main {
+    overflow: hidden;
+    width: 100%;
+}
+
+.container {
+    position: relative;
+}
+
+@include media('>=phone') {
+    .container {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}

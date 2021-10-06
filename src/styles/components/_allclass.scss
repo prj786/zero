@@ -1,0 +1,51 @@
+.text-center {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.link {
+  @include text-underline();
+}
+
+.btn {
+  background: $color-primary;
+  @include btn-fill($color: $color-background, $background: $color-primary);
+  border-radius: 5rem;
+  text-transform: uppercase;
+}
+
+.border {
+  width: 100%;
+  border-bottom: 1px solid $color-text;
+}
+
+.text-gray {
+  color: $color-gray;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.imgheight {
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-small {
+  display: inline-block;
+  margin-top: -5px;
+  margin-left: 5px;
+  vertical-align: top;
+  @include font-size(0.85em);
+}
+
+.color-primary {
+  color: $color-primary;
+}
+
+.bold {
+  font-weight: 500;
+  text-decoration: underline;
+}
