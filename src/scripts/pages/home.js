@@ -124,9 +124,7 @@ export default class Home {
   }
 
   scrollup() {
-    console.log("scrollup")
     const elSwiper = this.swiper;
-
     //active only on mobile to go to the previous slide when you drag/pan scroll up at the top
     const touchGesture = new Hammer(window, {
       touchAction: 'auto'
@@ -134,150 +132,41 @@ export default class Home {
 
     touchGesture.get('pan').set({ direction: Hammer.DIRECTION_DOWN });
     touchGesture.on('pandown', function(e) {
-      console.log("touchGesture on pandown e:",e)   //never triggered
       if (e.target.scrollY === 0) {
         setTimeout(() => {
-          console.log("launching previous slide")
           return elSwiper.slidePrev();
         }, 150);
       }
     });
-    
+
     window.addEventListener('wheel', (e) => {
-      if (e.view.scrollY === 0) {
+      if (e.view.scrollY === 0)
+      {
         if (e.deltaY < 0) {
           setTimeout(() => {
             return elSwiper.slidePrev();
           }, 150);
         }
       }
-
       /* The bug is here in the detection of Swiping left and right
       // this is used only on the desktop so we can get rid of it - on mobile we have the pan behaviur captured by touchGesture
       // the problem appaars only with trackpads where the deltaX or delta Y isn't as precise than with a mouseWheel
       // because when you are moving the mouse on a trackpad you are always going a bit in all directions
       // normalizing and chekcing which among all directions is the strongest works up to a certain point, 
       // because if you keep moving the mouse will still capture some different directions...
-      // there are possible solutions but since this is not an important interaction we can safely delete it
-      if (e.deltaX > 0) {
-        setTimeout(() => {
-          elSwiper.slideNext();
-        }, 150);
-      } else if (e.deltaX < 0) {
-        setTimeout(() => {
-          elSwiper.slidePrev();
-        }, 150);
-      }
-      //*/
+      // there are possible solutions but since this is not an important interaction we can safely delete it */
+
+      // if (e.deltaX > 0) {
+      //   setTimeout(() => {
+      //     elSwiper.slideNext();
+      //   }, 150);
+      // } else if (e.deltaX < 0) {
+      //   setTimeout(() => {
+      //     elSwiper.slidePrev();
+      //   }, 150);
+      // }
     });
   }
-
-    // BB ATTEMPT TO SOLVE BUG
-    // TODO explore this to normalize Mousewheel speeds across browsers
-    // https://stackoverflow.com/questions/5527601/normalizing-mousewheel-speed-across-browsers
-    /*
-    scrollup() {
-      console.log("scrollup")
-      const elSwiper = this.swiper;
-  
-      //active only on mobile to go to the previous slide when you drag/pan scroll up at the top
-      const touchGesture = new Hammer(window, {
-        touchAction: 'auto'
-      });
-  
-      touchGesture.get('pan').set({ direction: Hammer.DIRECTION_DOWN });
-      touchGesture.on('pandown', function(e) {
-        console.log("touchGesture on pandown e:",e)   //never triggered
-        if (e.target.scrollY === 0) {
-          setTimeout(() => {
-            console.log("launching previous slide")
-            return elSwiper.slidePrev();
-          }, 150);
-        }
-      });
-
-    //*
-    function detectRealDirection(e) {
-      //console.log("direction e: ",e)
-      console.log("direction. \te.wheelDeltaX: " + e.wheelDeltaX + "\te.wheelDeltaY: " + e.wheelDeltaY )
-      //console.log("direction \te.deltaX: " + e.deltaX + "\tdeltaY: "+ e.deltaY)
-      let x = Math.abs(e.wheelDeltaX)
-      let y = Math.abs(e.wheelDeltaY)
-      let dir = ""
-      if(x > y && e.deltaX < 0) dir = "LEFT"
-      if(x > y && e.deltaX > 0) dir = "RIGHT"
-      if(x < y && e.deltaY > 0) dir = "DOWN"
-      if(x < y && e.deltaY < 0) dir = "UP"
-      console.log("swiping "+dir )//+ " e.deltaX: " + e.deltaX + " - deltaY: "+ e.deltaY)
-      return dir
-    }
-
-    let launchedDir = false
-    //*
-    window.addEventListener('wheel', (e) => {
-      //console.log("window.wheel e: ",e)
-      //console.log("window.wheel e.deltaY: ",e.deltaY)
-      let dir = detectRealDirection(e)
-      //console.log("window.wheel e.movementX: ",e.movementX) - always 0 why?
-
-      //When it touches the top show the previous slide - this works
-      if (dir == "UP" && e.view.scrollY === 0) {
-        //if (e.deltaY < 0) {
-        //if (dir == "UP") {
-          setTimeout(() => {
-            return elSwiper.slidePrev();
-          }, 150);
-        //}
-      }
-
-      ///*  Still causes some problems from time to time
-      if (dir == "RIGHT" && !launchedDir) {
-        launchedDir = true;
-        setTimeout(() => {
-          elSwiper.slideNext();
-          launchedDir = false
-          console.log("launchedDir 1: " + launchedDir)
-        }, 150);
-        
-      
-      } else if (dir == "LEFT" && !launchedDir) {
-        launchedDir = true;
-        setTimeout(() => {
-          console.log("launching slidePrev")
-          elSwiper.slidePrev();
-          launchedDir = false
-          console.log("launchedDir 1: " + launchedDir)
-        }, 150);
-
-        // this should avoid picking the LEFT or right if I'm going down
-      } else if (dir == "DOWN" && !launchedDir) {
-        launchedDir = true;
-        setTimeout(() => { launchedDir = false });
-      }
-      //*/
-
-      /*
-      //when I scroll Sideways - show the next or previous slider
-      if (e.deltaX > 0) {
-        console.log("launch timeout to launch next slide")
-        setTimeout(() => {
-          elSwiper.slideNext();
-        }, 150);
-
-        // this causes problem because at the beginning the e.deltaX is already -0 or -1 
-        // changing it to -2 or -3 to add a threshold doesn't work either
-      }  else if (e.deltaX < 0) {
-        //else if (e.deltaX < -2) {  //not even this works
-        setTimeout(() => {
-          console.log("launching slidePrev")
-          elSwiper.slidePrev();
-        }, 150);
-      }
-      //* /
-    });
-    //* /
-  }
-  //*/
 
   onscroll() {
     // Below slider
@@ -297,7 +186,6 @@ export default class Home {
   }
 
   nextchapter() {
-    console.log("nextChapter");
     let isNext = false;
     const elSwiper = this.swiper;
 

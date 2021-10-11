@@ -58,6 +58,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@babel/core": "^7.15.8",
     "@egjs/hammerjs": "^2.0.17",
     "bootstrap": "^5.1.1",
     "dotenv": "^8.2.0",

@@ -93,7 +93,7 @@ strong {
 
 @include media('>=phone') {
     .container {
-        max-width: 90%;
+        // max-width: 90%;
         margin: 0 auto;
     }
 }
