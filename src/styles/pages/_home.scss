@@ -176,6 +176,10 @@
         @include font-heading($size: 1.4rem);
         transition: opacity 0.5s $ease-inout-expo, transform 0.5s $ease-inout-expo;
         transform: translateX(-50%) translateY(40px);
+        max-height: 178px;
+        line-height: 60px;
+        font-size: 60px;
+        text-align: center;
         opacity: 0;
 
         @include media('>=phone') {
@@ -183,6 +187,26 @@
           bottom: 20%;
           @include font-heading($size: 2.5rem);
         }
+      }
+
+      .s-zero {
+        max-width: 1167px;
+      }
+
+      .s-one {
+        max-width: 800px;
+      }
+
+      .s-two {
+        max-width: 671px;
+      }
+
+      .s-three {
+        max-width: 950px;
+      }
+
+      .s-four {
+        max-width: 820px;
       }
 
       .slide-btn {
@@ -258,6 +282,11 @@
     }
   }
 
+  .fixed-margin {
+    margin-bottom: 0 !important;
+    overflow: hidden;
+  }
+
   .content {
 
     &-wrap {
@@ -296,6 +325,9 @@
 
   #nextchapter {
     padding: 20rem 0;//Add space around, keep scrolling for next chapter
+    position: relative;
+    z-index: 999;
+    background-color: #fff;
 
     .nextchapter {
 
@@ -332,4 +364,63 @@
       }
     }
   }
+}
+
+.f-small {
+  font-size: 20px;
+}
+
+.f-medium {
+  font-size: 30px;
+}
+
+.f-large {
+  font-size: 42px;
+}
+
+.f-larger {
+  font-size: 60px;
+}
+
+.t-end {
+  text-align: right;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.t-start {
+  text-align: start;
+}
+
+.h-42 {
+  line-height: 42px;
+}
+
+.h-26 {
+  line-height: 26px;
+}
+
+.h-60 {
+  line-height: 60px;
+}
+
+.h-52 {
+  line-height: 52px;
+}
+
+.h-48 {
+  line-height: 48px;
+}
+
+.gradient {
+  border-radius: 10px;
+  padding: 5px 20px;
+  background: rgb(235,185,242);
+  background: linear-gradient(90deg, rgba(235,185,242,1) 0%, rgba(246,170,170,1) 50%, rgba(165,102,255,1) 100%);
+}
+
+.underline {
+  text-decoration: underline;
 }
