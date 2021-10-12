@@ -65,6 +65,9 @@
     .cr-medium-text {
         max-width: 338px;
     }
+    span {
+        display: block;
+    }
 }
 .crypto {
     .size-small {
@@ -162,11 +165,11 @@
         z-index: 9999;
         align-items: center;
         padding-top: 56px;
-        max-width: 500px;
         padding-bottom: 76px;
         max-height: 649px;
         padding-top: 90px;
         padding-bottom: 130px;
+        gap: 50px;
         p {
             color: #F8F9FA;
         }
@@ -315,6 +318,12 @@
         }
         .gradient {
             padding: 0;
+        }
+
+    }
+    .decarbonize {
+        img {
+            max-width: 565px;
         }
     }
     .to-right {
