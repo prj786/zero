@@ -1,0 +1,130 @@
+.line {
+    width: 52%;
+    height: 1px;
+    background-color: red;
+}
+.right {
+    margin-left: 50%;
+    width: 48%;
+}
+
+.line-seperator {
+    height: 342px;
+    margin: 0;
+    .line-box {
+        position: relative;
+        min-height: 100%;
+    }
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    color: #452E66;
+    .card-body {
+        width: 100%;
+        height: 100%;
+        padding: 30px;
+        padding-left: 0;
+        text-align: left;
+        h2 {
+            font-size: 60px;
+        }
+        p {
+            font-size: 30px;
+            line-height: 42px;
+            max-width: 459px;
+        }
+    }
+    .left {
+        padding: 30px;
+        padding-right: 0;
+        text-align: right;
+        p {
+            margin-left: auto;
+            margin-right: 0;
+        }
+    }
+}
+
+.pos-rel {
+    position: relative;
+}
+
+.avatar-separator {
+    img {
+        position: absolute;
+        left: 50%;
+        transform: translateX(50%);
+        max-width: 660px;
+        max-height: 210px;
+    }
+    .circle {
+        color: #452E66;
+        width: 96px;
+        height: 96px;
+        background-color: #D8F1A3;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 96px;
+        font-size: 34px;
+        position: relative;
+        z-index: 999;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.learn-more {
+    display: flex;
+    flex-direction: column;
+    background-color: #F8F9FA;
+    padding: 37px 35px;
+    & > * {
+        height: 70px;
+        border-bottom: 1px solid #DEE6EE;
+    }
+    .header {
+        line-height: 70px;
+    }
+    .li-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        img {
+            width: 17px !important;
+            height: 16px;
+            margin-right: 0;
+            margin-left: auto;
+        }
+    }
+}
+
+.align-middle {
+    display: flex;
+    align-items: center;
+}
+
+@media only screen and (max-width: 978px) {
+    .card {
+        .card-body {
+            h2 {
+                padding: 0 16px;
+            }
+            p {
+                padding: 0 16px;
+            }
+        }
+    }
+    .line-seperator {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .card-body {
+        padding: 0 !important;
+    }
+}
