@@ -48,6 +48,10 @@
     }
 }
 
+.additional {
+    padding-top: 0 !important;
+}
+
 .pos-rel {
     position: relative;
 }
@@ -87,6 +91,7 @@
     }
     .header {
         line-height: 70px;
+        text-align: left;
     }
     .li-item {
         display: flex;
