@@ -162,7 +162,7 @@
 
         @include media('<=phone') {
           top: 48%;
-          @include font-subheading2($size: 0.5rem);
+          @include font-subheading2($size: 1rem);
         }
       }
 
