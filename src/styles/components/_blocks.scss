@@ -48,8 +48,8 @@
         max-height: 178px;
     }
     .g-sized {
-        max-width: 615px;
-        max-height: 345px;
+        max-width: 595px;
+        max-height: 371px;
     }
     .block-one-t-one {
         max-width: 591px;
@@ -144,7 +144,7 @@
     position: relative;
     justify-content: space-between;
     width: 100%;
-    img {
+    .footer-image {
         position: absolute;
         left: 50%;
         max-width: 1400px;
@@ -170,6 +170,15 @@
         padding-top: 90px;
         padding-bottom: 130px;
         gap: 50px;
+        h2 {
+            max-width: 456px;
+            line-height: 26px;
+            color: #F8F9FA;
+        }
+        h3 {
+            max-width: 456px;
+            line-height: 42px;
+        }
         p {
             color: #F8F9FA;
         }
@@ -188,9 +197,9 @@
                 flex: 2;
                 text-align: center;
             }
-            img {
+            .icon {
                 flex: 1;
-                width: 12px;
+                width: 12px !important;
                 height: 11px;
                 position: inherit;
             }
@@ -259,6 +268,76 @@
 }
 
 
+// aemo
+
+.aemo-box {
+    min-height: 347px;
+    background-color: #F8F9FA;
+}
+
+.aemo-text-1-1 {
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.aemo-0-2 {
+    img {
+        margin-left: -14px;
+    }
+}
+
+.aemo-text-0-1 {
+    h1 {
+        span {
+            font-size: 60px;
+            margin-top: 30px;
+        }
+        .last {
+            margin-top: 40px;
+        }
+    }
+
+}
+
+.aemo-text-2-2 {
+    padding-right: 40px;
+}
+
+.aemo-text-2-1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding:40px;
+}
+
+.aemo-text-0-2 {
+    h1 {
+        max-width: 521px;
+        font-size: 32px;
+        font-weight: 42px;
+    }
+}
+
+.aemo-3-1 {
+    align-items: center;
+    .sized-image {
+        max-width: 502px;
+        max-height: 247px;
+    }
+    article {
+        max-width: 502px;
+    }
+}
+
+.aemo-4-0 {
+    img {
+        max-width: 519px;
+        max-height: 266px;
+    }
+}
+
 @media only screen and (max-width: 950px) {
     .crypto-f {
         .main-box {
@@ -317,7 +396,9 @@
             text-align: center !important;
         }
         .gradient {
-            padding: 0;
+            padding: 12px;
+            max-width: fit-content;
+            margin: 0 auto;
         }
 
     }
